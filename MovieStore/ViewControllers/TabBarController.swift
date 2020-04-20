@@ -7,14 +7,10 @@
 //
 
 import UIKit
-import SWRevealViewController
 class TabBarController: UITabBarController {
 
-    @IBOutlet weak var btnMenu: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnMenu.target = revealViewController()
-        btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
         self.customizeUI()
         // Do any additional setup after loading the view.
     }
@@ -22,8 +18,6 @@ class TabBarController: UITabBarController {
             tabBar.barTintColor = UIColor.init(red: 85/255, green: 100/255, blue: 185/255, alpha: 1)
             tabBar.isTranslucent = false
             tabBar.tintColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-            navigationController?.navigationBar.barTintColor = UIColor.init(red: 85/255, green: 100/255, blue: 185/255, alpha: 1)
-            navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     //        self.navigationItem.title = "The title"
     //        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         }

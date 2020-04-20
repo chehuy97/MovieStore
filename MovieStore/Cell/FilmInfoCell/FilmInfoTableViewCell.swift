@@ -34,10 +34,8 @@ class FilmInfoTableViewCell: UITableViewCell {
     @IBAction func favoriteSelected(_ sender: Any) {
         favotiteSelected = !favotiteSelected
         if favotiteSelected == true {
-            print("1")
             selectedFavorite.setImage(UIImage.init(named: "star-selected"), for: .normal)
         } else {
-            print("2")
             selectedFavorite.setImage(UIImage.init(named: "star"), for: .normal)
         }
     }

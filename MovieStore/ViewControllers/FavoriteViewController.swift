@@ -7,21 +7,26 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var filmTable: UITableView!
-    
+    @IBOutlet weak var btnMenu: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnMenu.target = revealViewController()
+        btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
         filmTable.dataSource = self
         filmTable.delegate = self
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.navigationItem.title = "Favorite"
+        self.title = "Favorite Film"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.barTintColor = UIColor.init(red: 85/255, green: 100/255, blue: 185/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,4 +47,4 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         print("film selected")
     }
 
-} 
+}
