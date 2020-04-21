@@ -15,7 +15,8 @@ class CastCollectionViewCell: UICollectionViewCell {
     func configurateUI(){
         imgActor.image = UIImage.init(named: "actor")
         nameActor.text = "Chris Evans"
-        self.heightAnchor.constraint(equalToConstant: 160).isActive = true
-        self.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        self.widthAnchor.constraint(equalToConstant: 95).isActive = true
+        
     }
 }

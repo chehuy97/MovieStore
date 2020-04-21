@@ -23,6 +23,11 @@
 		8E13DCEE2449B7B100913D44 /* FilmInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13DCED2449B7B100913D44 /* FilmInfoTableViewCell.swift */; };
 		8E13DCF4244ADC0F00913D44 /* FilmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13DCF3244ADC0F00913D44 /* FilmDetailViewController.swift */; };
 		8E2A1E26244AEC3E00D38FB1 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E25244AEC3E00D38FB1 /* CastCollectionViewCell.swift */; };
+		8E2A1E2B244D4E8200D38FB1 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2A244D4E8200D38FB1 /* SettingTableViewCell.swift */; };
+		8E2A1E2D244D55B000D38FB1 /* SettingRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */; };
+		8E2A1E2F244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */; };
+		8E2A1E32244D8B7000D38FB1 /* YearPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */; };
+		8EB01A54244E8EF300B577C2 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01A53244E8EF300B577C2 /* PickerDelegate.swift */; };
 		FF1642633629FD6FEB28442D /* Pods_MovieStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE6164F2D7C24D5AB40AA1C /* Pods_MovieStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +50,11 @@
 		8E13DCED2449B7B100913D44 /* FilmInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoTableViewCell.swift; sourceTree = "<group>"; };
 		8E13DCF3244ADC0F00913D44 /* FilmDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailViewController.swift; sourceTree = "<group>"; };
 		8E2A1E25244AEC3E00D38FB1 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
+		8E2A1E2A244D4E8200D38FB1 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRateTableViewCell.swift; sourceTree = "<group>"; };
+		8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReleaseYearTableViewCell.swift; sourceTree = "<group>"; };
+		8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPickerViewController.swift; sourceTree = "<group>"; };
+		8EB01A53244E8EF300B577C2 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
 		92F724815F03526686BB11E5 /* Pods-MovieStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieStore.debug.xcconfig"; path = "Target Support Files/Pods-MovieStore/Pods-MovieStore.debug.xcconfig"; sourceTree = "<group>"; };
 		AEE6164F2D7C24D5AB40AA1C /* Pods_MovieStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1C01F3EFC295B5BD6FE583 /* Pods-MovieStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieStore.release.xcconfig"; path = "Target Support Files/Pods-MovieStore/Pods-MovieStore.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +110,7 @@
 		8E13DCC32449924800913D44 /* MovieStore */ = {
 			isa = PBXGroup;
 			children = (
+				8EB01A52244E8EA800B577C2 /* Protocols */,
 				8E13DCDE2449955400913D44 /* ViewControllers */,
 				8E13DCE32449A57600913D44 /* Cell */,
 				8E13DCC42449924800913D44 /* AppDelegate.swift */,
@@ -115,6 +126,7 @@
 		8E13DCDE2449955400913D44 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8E2A1E30244D8B2C00D38FB1 /* CustomControls */,
 				8E13DCC82449924800913D44 /* HomeViewController.swift */,
 				8E13DCD82449940800913D44 /* FavoriteViewController.swift */,
 				8E13DCDA2449943C00913D44 /* SettingViewController.swift */,
@@ -129,6 +141,7 @@
 		8E13DCE32449A57600913D44 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8E2A1E27244D4E5400D38FB1 /* SettingCell */,
 				8E2A1E24244AEC0F00D38FB1 /* CastCell */,
 				8E13DCEC2449B78900913D44 /* FilmInfoCell */,
 				8E13DCE82449A66500913D44 /* UserInfoCell */,
@@ -167,6 +180,32 @@
 				8E2A1E25244AEC3E00D38FB1 /* CastCollectionViewCell.swift */,
 			);
 			path = CastCell;
+			sourceTree = "<group>";
+		};
+		8E2A1E27244D4E5400D38FB1 /* SettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				8E2A1E2A244D4E8200D38FB1 /* SettingTableViewCell.swift */,
+				8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */,
+				8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */,
+			);
+			path = SettingCell;
+			sourceTree = "<group>";
+		};
+		8E2A1E30244D8B2C00D38FB1 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */,
+			);
+			path = CustomControls;
+			sourceTree = "<group>";
+		};
+		8EB01A52244E8EA800B577C2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8EB01A53244E8EF300B577C2 /* PickerDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,12 +325,17 @@
 			files = (
 				8E13DCDD2449944700913D44 /* AboutViewController.swift in Sources */,
 				8E2A1E26244AEC3E00D38FB1 /* CastCollectionViewCell.swift in Sources */,
+				8E2A1E2B244D4E8200D38FB1 /* SettingTableViewCell.swift in Sources */,
+				8E2A1E2F244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift in Sources */,
 				8E13DCDB2449943C00913D44 /* SettingViewController.swift in Sources */,
 				8E13DCC92449924800913D44 /* HomeViewController.swift in Sources */,
+				8EB01A54244E8EF300B577C2 /* PickerDelegate.swift in Sources */,
 				8E13DCF4244ADC0F00913D44 /* FilmDetailViewController.swift in Sources */,
+				8E2A1E32244D8B7000D38FB1 /* YearPickerViewController.swift in Sources */,
 				8E13DCE72449A5EB00913D44 /* UserInfoTableViewCell.swift in Sources */,
 				8E13DCC52449924800913D44 /* AppDelegate.swift in Sources */,
 				8E13DCE0244995FF00913D44 /* TabBarController.swift in Sources */,
+				8E2A1E2D244D55B000D38FB1 /* SettingRateTableViewCell.swift in Sources */,
 				8E13DCD92449940800913D44 /* FavoriteViewController.swift in Sources */,
 				8E13DCC72449924800913D44 /* SceneDelegate.swift in Sources */,
 				8E13DCE22449983500913D44 /* MenuViewController.swift in Sources */,

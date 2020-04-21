@@ -31,13 +31,13 @@ class FilmDetailViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func customizeUI() {
+        castView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         imageFilm.image = UIImage.init(named: "filmImage")
         reminderButton.layer.cornerRadius = 10
         reminderButton.backgroundColor = UIColor.init(red: 85/255, green: 100/255, blue: 185/255, alpha: 1)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
+        return 7    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CastCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "actorCell", for: indexPath) as! CastCollectionViewCell

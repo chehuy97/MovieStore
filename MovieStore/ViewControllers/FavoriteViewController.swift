@@ -44,7 +44,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         return 230
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("film selected")
+        self.performSegue(withIdentifier: "showFavoriteFilmDetail", sender: nil)
     }
 
 }
