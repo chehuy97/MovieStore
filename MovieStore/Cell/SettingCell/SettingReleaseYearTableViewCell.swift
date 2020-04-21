@@ -11,7 +11,12 @@ import UIKit
 class SettingReleaseYearTableViewCell: UITableViewCell {
 
     @IBOutlet weak var settingName:UILabel!
-    var showPicker:Bool = false
+    @IBOutlet weak var selectedYear: UIButton!
+    
+    func selectYear(time: String) {
+        selectedYear.setTitle(time, for: .normal)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,9 +26,4 @@ class SettingReleaseYearTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-//    @IBAction func showPickerDidTap(_ sender: Any) {
-//        self.performSegue(withIdentifier: "adadas", sender: nil)
-//        
-    
-
 }

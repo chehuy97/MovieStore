@@ -15,8 +15,7 @@ class YearPickerViewController: UIViewController,UIPickerViewDataSource,UIPicker
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var btnSelect: UIButton!
     var pickerDelegate:PickerDelegate?
-    //var yearPickerData:[String]!
-    var yearPickerData:[String] = ["1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007"]
+    var yearPickerData: Array<String> = []
     var selectYear:String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +24,10 @@ class YearPickerViewController: UIViewController,UIPickerViewDataSource,UIPicker
         // Do any additional setup after loading the view.
     }
     func initData() {
-//        for a in 1970...2020{
-//            yearPickerData.append("\(a)")
-//        }
-        selectYear = yearPickerData[0]
+            for i in 1970...2020{
+                yearPickerData.append(String(i))
+            }
+            selectYear = yearPickerData[0]
     }
     func customizeUI(){
        // self.view.backgroundColor = UIColor.clear
@@ -45,7 +44,7 @@ class YearPickerViewController: UIViewController,UIPickerViewDataSource,UIPicker
         }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            yearPickerData.count
+        yearPickerData.count
         }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -55,15 +54,17 @@ class YearPickerViewController: UIViewController,UIPickerViewDataSource,UIPicker
             return 40
         }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            print(yearPickerData[row])
             selectYear = yearPickerData[row]
         }
     @IBAction func cancelButtonDidTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
     }
     @IBAction func selectButtonDidTap(_ sender: Any) {
-        print("select is \(selectYear!)")
         self.pickerDelegate?.selectPickerTime(time: selectYear)
+        self.dismiss(animated: true, completion: nil)
+       // self.navigationController?.popViewController(animated: true)
+        
     }
     /*
     // MARK: - Navigation

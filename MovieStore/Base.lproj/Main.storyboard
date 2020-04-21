@@ -179,7 +179,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="oIr-7Z-usP">
                         <barButtonItem key="leftBarButtonItem" title="list" image="menu" id="pTd-eg-IWI"/>
-                        <barButtonItem key="rightBarButtonItem" title="grid" image="grid" id="NbK-Ei-60e"/>
+                        <barButtonItem key="rightBarButtonItem" title="grid" image="grid" id="NbK-Ei-60e">
+                            <connections>
+                                <segue destination="0Vw-kl-cAE" kind="show" id="vF0-Ar-xD3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="pTd-eg-IWI" id="Vah-h5-yfn"/>
@@ -190,6 +194,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jn-cv-bQD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3686" y="-275"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="F9A-3J-c90">
+            <objects>
+                <viewController id="0Vw-kl-cAE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yx1-0O-alh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="mdZ-OK-w0X"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QFY-dF-hIP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hwp-3G-TvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5277" y="-275"/>
         </scene>
         <!--Film Detail View Controller-->
         <scene sceneID="o9v-lM-mvi">
@@ -391,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oj2-fx-xzN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5149" y="236"/>
+            <point key="canvasLocation" x="5117" y="494"/>
         </scene>
         <!--Favorite-->
         <scene sceneID="QTB-iB-wlU">
@@ -580,7 +600,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="MXL-Zf-vaY">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="EUY-WV-dqG"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="grid" id="dIW-Fg-XQO"/>
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="EUY-WV-dqG" id="xZf-59-OLN"/>
@@ -686,7 +705,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qk5-zA-GIs">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qk5-zA-GIs">
                                                     <rect key="frame" x="68" y="61" width="274" height="26"/>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -747,6 +766,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="openPicker:" destination="qyH-iv-nm0" eventType="touchUpInside" id="7T8-iU-NvU"/>
+                                                        <segue destination="gx3-gD-jVb" kind="presentation" identifier="showSettingYearPicker" modalPresentationStyle="overFullScreen" id="ys2-ka-pW2"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -758,6 +778,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="selectedYear" destination="jMG-aR-j4P" id="mOE-f5-0QT"/>
                                             <outlet property="settingName" destination="Iud-S0-5cd" id="Tio-U6-9HV"/>
                                         </connections>
                                     </tableViewCell>
@@ -1158,6 +1179,6 @@
         <image name="temporaryAbout" width="341" height="481"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6VB-tg-x9C"/>
+        <segue reference="zf2-Ko-erM"/>
     </inferredMetricsTieBreakers>
 </document>

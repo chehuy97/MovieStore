@@ -19,6 +19,7 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
     var selectItem:Bool = false
     var previousFilterIndex:IndexPath?
     var previousSortByIndex:IndexPath?
+    var releaseYear:IndexPath?
     var selectedTime:String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +35,14 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 85/255, green: 100/255, blue: 185/255, alpha: 1)
         navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showSettingYearPicker"){
+            let vc:YearPickerViewController = segue.destination as! YearPickerViewController
+            vc.pickerDelegate = self
+        }
+    }
+    
     func dataInit() {
-//        let yearPicker = YearPickerViewController()
-//        yearPicker.pickerDelegate = self
         settingTableView.delegate = self
         settingTableView.dataSource = self
         settingListFilter = ["Popular Movies", "Top Rate Movies", "Upcoming Movies", "NowPlaying Movies","Movie with rate from:", "Release Year"]
@@ -68,11 +74,13 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
             if indexPath.row == 4 {
                 let cell:SettingRateTableViewCell = tableView.dequeueReusableCell(withIdentifier: "settingRateCell") as! SettingRateTableViewCell
                 cell.settingName.text = settingListFilter[indexPath.row]
+                cell.rateScore.text = String(cell.sliderScore.value)
                 return cell
             }
             if indexPath.row == 5 {
                 let cell:SettingReleaseYearTableViewCell = tableView.dequeueReusableCell(withIdentifier: "settingYearCell") as! SettingReleaseYearTableViewCell
                 cell.settingName.text = settingListFilter[indexPath.row]
+                releaseYear = indexPath
                 return cell
             }
             let cell:SettingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "settingCell")! as! SettingTableViewCell
@@ -95,12 +103,6 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         
         return 60
     }
-    @IBAction func openPicker(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "YearPickerViewController") as! YearPickerViewController
-        vc.modalPresentationStyle = .overFullScreen
-        vc.pickerDelegate = self
-        present(vc, animated: true, completion: nil)
-    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if previousFilterIndex != nil {
@@ -122,17 +124,22 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
             } else {
                 previousSortByIndex = indexPath
             }
-        } else if (indexPath.section == 0 && indexPath.row == 5) {
-
-        }else {
-
         }
+    }
+    @IBAction func openPicker(_ sender: Any) {
+    //        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "YearPickerViewController") as! YearPickerViewController
+    //        vc.modalPresentationStyle = .overFullScreen
+    //        vc.pickerDelegate = self
+    //        present(vc, animated: true, completion: nil)
+            self.shouldPerformSegue(withIdentifier: "showSettingYearPicker", sender: nil)
     }
     //Picker Delegate
     func selectPickerTime(time: String) {
         selectedTime = time
-        print(selectedTime!)
-        print("OK")
+        if releaseYear != nil {
+            let cell:SettingReleaseYearTableViewCell = settingTableView.cellForRow(at: releaseYear!) as! SettingReleaseYearTableViewCell
+            cell.selectYear(time: selectedTime)
+        }
     }
     /*
     // MARK: - Navigation
