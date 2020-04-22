@@ -28,6 +28,9 @@
 		8E2A1E2F244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */; };
 		8E2A1E32244D8B7000D38FB1 /* YearPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */; };
 		8EB01A54244E8EF300B577C2 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01A53244E8EF300B577C2 /* PickerDelegate.swift */; };
+		8EB01A59244ED1E600B577C2 /* FilmInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01A58244ED1E600B577C2 /* FilmInfoCollectionViewCell.swift */; };
+		8EB01A5C244EE8BD00B577C2 /* UserEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01A5B244EE8BD00B577C2 /* UserEditViewController.swift */; };
+		8EB01A5E244F02A200B577C2 /* UserInfoGenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB01A5D244F02A200B577C2 /* UserInfoGenderTableViewCell.swift */; };
 		FF1642633629FD6FEB28442D /* Pods_MovieStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE6164F2D7C24D5AB40AA1C /* Pods_MovieStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReleaseYearTableViewCell.swift; sourceTree = "<group>"; };
 		8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPickerViewController.swift; sourceTree = "<group>"; };
 		8EB01A53244E8EF300B577C2 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
+		8EB01A58244ED1E600B577C2 /* FilmInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		8EB01A5B244EE8BD00B577C2 /* UserEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditViewController.swift; sourceTree = "<group>"; };
+		8EB01A5D244F02A200B577C2 /* UserInfoGenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoGenderTableViewCell.swift; sourceTree = "<group>"; };
 		92F724815F03526686BB11E5 /* Pods-MovieStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieStore.debug.xcconfig"; path = "Target Support Files/Pods-MovieStore/Pods-MovieStore.debug.xcconfig"; sourceTree = "<group>"; };
 		AEE6164F2D7C24D5AB40AA1C /* Pods_MovieStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1C01F3EFC295B5BD6FE583 /* Pods-MovieStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieStore.release.xcconfig"; path = "Target Support Files/Pods-MovieStore/Pods-MovieStore.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,12 +133,12 @@
 			isa = PBXGroup;
 			children = (
 				8E2A1E30244D8B2C00D38FB1 /* CustomControls */,
+				8EB01A5A244EE87C00B577C2 /* RearViewControllers */,
 				8E13DCC82449924800913D44 /* HomeViewController.swift */,
 				8E13DCD82449940800913D44 /* FavoriteViewController.swift */,
 				8E13DCDA2449943C00913D44 /* SettingViewController.swift */,
 				8E13DCDC2449944700913D44 /* AboutViewController.swift */,
 				8E13DCDF244995FF00913D44 /* TabBarController.swift */,
-				8E13DCE12449983500913D44 /* MenuViewController.swift */,
 				8E13DCF3244ADC0F00913D44 /* FilmDetailViewController.swift */,
 			);
 			path = ViewControllers;
@@ -154,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				8E13DCE62449A5EB00913D44 /* UserInfoTableViewCell.swift */,
+				8EB01A5D244F02A200B577C2 /* UserInfoGenderTableViewCell.swift */,
 			);
 			path = UserInfoCell;
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				8E13DCED2449B7B100913D44 /* FilmInfoTableViewCell.swift */,
+				8EB01A58244ED1E600B577C2 /* FilmInfoCollectionViewCell.swift */,
 			);
 			path = FilmInfoCell;
 			sourceTree = "<group>";
@@ -206,6 +214,15 @@
 				8EB01A53244E8EF300B577C2 /* PickerDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8EB01A5A244EE87C00B577C2 /* RearViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8E13DCE12449983500913D44 /* MenuViewController.swift */,
+				8EB01A5B244EE8BD00B577C2 /* UserEditViewController.swift */,
+			);
+			path = RearViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,9 +351,12 @@
 				8E2A1E32244D8B7000D38FB1 /* YearPickerViewController.swift in Sources */,
 				8E13DCE72449A5EB00913D44 /* UserInfoTableViewCell.swift in Sources */,
 				8E13DCC52449924800913D44 /* AppDelegate.swift in Sources */,
+				8EB01A59244ED1E600B577C2 /* FilmInfoCollectionViewCell.swift in Sources */,
 				8E13DCE0244995FF00913D44 /* TabBarController.swift in Sources */,
+				8EB01A5E244F02A200B577C2 /* UserInfoGenderTableViewCell.swift in Sources */,
 				8E2A1E2D244D55B000D38FB1 /* SettingRateTableViewCell.swift in Sources */,
 				8E13DCD92449940800913D44 /* FavoriteViewController.swift in Sources */,
+				8EB01A5C244EE8BD00B577C2 /* UserEditViewController.swift in Sources */,
 				8E13DCC72449924800913D44 /* SceneDelegate.swift in Sources */,
 				8E13DCE22449983500913D44 /* MenuViewController.swift in Sources */,
 				8E13DCEE2449B7B100913D44 /* FilmInfoTableViewCell.swift in Sources */,
