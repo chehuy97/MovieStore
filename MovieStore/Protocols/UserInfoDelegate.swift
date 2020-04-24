@@ -9,5 +9,6 @@
 import Foundation
 
 protocol UserInfoDelegate {
-    func passUserData(userImg:Any,userName:String, userBirthday:String, userMail:String, userGender:Bool)
+   func passUserData(userImg:Any, userName:String, userBirthday:String, userMail:String, userGender:Bool)
+
 }

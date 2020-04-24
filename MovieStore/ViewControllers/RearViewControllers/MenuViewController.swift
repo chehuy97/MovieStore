@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController, UITableViewDataSource, UserInfoDelegate {
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userAvatar: UIImageView!
@@ -16,10 +16,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UserInfoDeleg
     @IBOutlet weak var reminderTable: UITableView!
     @IBOutlet weak var showAllBtn: UIButton!
     @IBOutlet weak var editBtn: UIButton!
-    var userImage:UIImage?
+//    var userInfoMenuDelegate:UserInfoDelegate!
+    
+    var userImage:UIImage!
     var userInfoName:String = "John Marker"
     var userBirthday:String = "1970-01-01"
-    var userMail:String = "johnmarker@gmail.com"
+    var userMail:String = "johnmarker97@gmail.com"
     var userGender:Bool = true
     //    var listUSerInforImage:[String]!
     //    var listUSerInforValue:[String]!
@@ -34,19 +36,22 @@ class MenuViewController: UIViewController, UITableViewDataSource, UserInfoDeleg
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        if userImage != nil {
-            userAvatar.image = userImage
+        if userImage == nil {
+            userImage = UIImage()
+            userImage = UIImage.init(named: "sad")
         }
+        userAvatar.image = userImage
+        userAvatar.layer.cornerRadius =  userAvatar.bounds.height/2
         userName.text = userInfoName
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showEditUserSegue" {
-            let vc:UserEditViewController  = segue.destination as! UserEditViewController
-            vc.userInfoDelegate = self
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showEditUserSegue" {
+//            let vc:UserEditViewController  = segue.destination as! UserEditViewController
+//            vc.userInfoDelegate = self
+//        }
+//    }
     
     func customizeUI(){
         self.revealViewController()?.rearViewRevealWidth = 350
@@ -106,18 +111,29 @@ class MenuViewController: UIViewController, UITableViewDataSource, UserInfoDeleg
         return 60
     }
     
-    func passUserData(userImg: Any, userName: String, userBirthday: String, userMail: String, userGender: Bool) {
-        self.userImage = userImg as? UIImage
-        self.userInfoName = userName
-        self.userBirthday = userBirthday
-        self.userMail = userMail
-        self.userGender = userGender
-    }
+//    func passUserData(userImg: Any, userName: String, userBirthday: String, userMail: String, userGender: Bool) {
+//        self.userImage = userImg as? UIImage
+//        self.userInfoName = userName
+//        self.userBirthday = userBirthday
+//        self.userMail = userMail
+//        self.userGender = userGender
+//    }
     
-    @IBAction func showEditView(_ sender: Any) {
+    @IBAction func showEditButtonDidTap(_ sender: Any) {
+        //self.userInfoMenuDelegate.passUserData(userImg: userImage ?? 1, userName: userInfoName, userBirthday: userBirthday, userMail: userMail, userGender: userGender)
         self.performSegue(withIdentifier: "showEditUserSegue", sender: nil)
+
     }
     
+    @IBAction func showAllButtonDidTap(_ sender: Any) {
+        let vcSetting = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "settingViewController") as! SettingViewController
+        vcSetting.modalPresentationStyle = .overCurrentContext
+//        present(vcSetting, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vcSetting, animated: true)
+//        self.navigationController?.pushViewController(vcSetting, animated: true)
+       // vcSetting.performSegue(withIdentifier: "showReminder", sender: nil)
+        
+    }
     /*
      // MARK: - Navigation
      

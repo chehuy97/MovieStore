@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilmDetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FilmDetailViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var imageFilm: UIImageView!
     @IBOutlet weak var reminderButton: UIButton!
@@ -45,6 +45,9 @@ class FilmDetailViewController: UIViewController, UICollectionViewDataSource, UI
         return cell        
     }
     
+    @IBAction func reminderButtonDidTap(_ sender: Any) {
+        self.performSegue(withIdentifier: "showReminderTime", sender: nil)
+    }
     @IBAction func FavoriteButtonDidTap(_ sender: Any) {
         selectedFavorite = !selectedFavorite
         if selectedFavorite == true {

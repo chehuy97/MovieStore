@@ -8,23 +8,23 @@
 
 import UIKit
 
-class UserEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, PickerDelegate{
+class UserEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate,PickerDelegate {
     
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var imageUser: UIButton!
+    @IBOutlet weak var textfieldName: UITextField!
     @IBOutlet weak var infoTable: UITableView!
-    var listUSerInforImage:[String]!
     var selectedDate:String!
     let imagePicker = UIImagePickerController()
     var birthdayPicker:IndexPath!
     var userInfoDelegate: UserInfoDelegate!
     
     var imgUSer:UIImage!
-    var nameUser:String!
-    var birthdayUser:String!
-    var mailUser:String!
-    var genderUser:String!
+    var nameUser:String = "John Marker"
+    var birthdayUser:String = "1970-01-01"
+    var mailUser:String = "johnmarker@gmail.com"
+    var genderUser:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +32,19 @@ class UserEditViewController: UIViewController, UITableViewDelegate, UITableView
         dataInit()
         // Do any additional setup after loading the view.
     }
-    
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        //imageUser.setImage(imgUSer, for: .normal)
+    //        textfieldName.text = nameUser
+    //    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUserBirthdayPicker" {
             let vc:BirthdayPickerViewController = segue.destination as! BirthdayPickerViewController
             vc.pickerDelegate = self
         }
+        //        if segue.identifier == "menuSegue" {
+        //            let vc:MenuViewController = segue.destination as! MenuViewController
+        //            vc.userInfoMenuDelegate = self
+        //        }
     }
     
     func customizeUI() {
@@ -55,28 +62,30 @@ class UserEditViewController: UIViewController, UITableViewDelegate, UITableView
         infoTable.dataSource = self
         imagePicker.modalPresentationStyle = .overFullScreen
         imagePicker.delegate = self
-        listUSerInforImage = ["birthday","mail","user"]
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listUSerInforImage.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell:UserInfoBirthdayTableViewCell = tableView.dequeueReusableCell(withIdentifier: "userInfoBirthdayCell") as! UserInfoBirthdayTableViewCell
-            cell.userImgIcon.image = UIImage.init(named: listUSerInforImage[indexPath.row])
+            cell.userImgIcon.image = UIImage.init(named: "birthday")
+            //cell.dateYearBtn.titleLabel?.text = birthdayUser
             cell.dateYearBtn.contentHorizontalAlignment = .left
             birthdayPicker = indexPath
             return cell
         }
         if indexPath.row == 1 {
             let cell:UserInfoMailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "userInfoMailCell") as! UserInfoMailTableViewCell
-            cell.userImgIcon.image = UIImage.init(named: listUSerInforImage[indexPath.row])
+            cell.userImgIcon.image = UIImage.init(named: "mail")
+            cell.nameMail.text = mailUser
             return cell
         }
         if indexPath.row == 2 {
             let cell:UserInfoGenderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "userInfoGenderCell") as! UserInfoGenderTableViewCell
-            cell.userImgIcon.image = UIImage.init(named: listUSerInforImage[indexPath.row])
+            cell.gender = genderUser
+            cell.userImgIcon.image = UIImage.init(named: "user")
             return cell
         }
         return UITableViewCell()
@@ -87,18 +96,16 @@ class UserEditViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let cell:UserInfoBirthdayTableViewCell = tableView.dequeueReusableCell(withIdentifier: "userInfoBirthdayCell") as! UserInfoBirthdayTableViewCell
-            cell.userImgIcon.image = UIImage.init(named: listUSerInforImage[indexPath.row])
-            cell.dateYearBtn.contentHorizontalAlignment = .left
-            birthdayPicker = indexPath
+            let cell:UserInfoBirthdayTableViewCell = infoTable.cellForRow(at: indexPath) as! UserInfoBirthdayTableViewCell
+            birthdayUser = cell.dateYearBtn.titleLabel?.text ?? "uf"
         }
         if indexPath.row == 1 {
-            let cell:UserInfoMailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "userInfoMailCell") as! UserInfoMailTableViewCell
-            cell.userImgIcon.image = UIImage.init(named: listUSerInforImage[indexPath.row])
+            let cell:UserInfoMailTableViewCell = infoTable.cellForRow(at: indexPath) as! UserInfoMailTableViewCell
+            mailUser = cell.nameMail.text ?? "eiruy"
         }
         if indexPath.row == 2 {
-            let cell:UserInfoGenderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "userInfoGenderCell") as! UserInfoGenderTableViewCell
-            cell.userImgIcon.image = UIImage.init(named: listUSerInforImage[indexPath.row])
+            let cell:UserInfoGenderTableViewCell = infoTable.cellForRow(at: indexPath) as! UserInfoGenderTableViewCell
+            genderUser = cell.gender
         }
     }
     
@@ -106,7 +113,8 @@ class UserEditViewController: UIViewController, UITableViewDelegate, UITableView
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func doneEditUSer(_ sender: Any) {
-        self.userInfoDelegate.passUserData(userImg: imgUSer ?? 1, userName: nameUser, userBirthday: birthdayUser, userMail: mailUser, userGender: (genderUser != nil))
+        //        self.userInfoDelegate.passUserData(userImg: imgUSer ?? 1, userName: nameUser, userBirthday: birthdayUser, userMail: mailUser, userGender: genderUser)
+        //        self.performSegue(withIdentifier: "menuSegue", sender: nil)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -138,6 +146,14 @@ class UserEditViewController: UIViewController, UITableViewDelegate, UITableView
         let cell:UserInfoBirthdayTableViewCell = infoTable.cellForRow(at: birthdayPicker) as! UserInfoBirthdayTableViewCell
         cell.selectDate(date: time)
     }
+    // user info delegate
+    //    func passUserData(userImg: Any, userName: String, userBirthday: String, userMail: String, userGender: Bool) {
+    //        imgUSer = userImg as? UIImage
+    //        nameUser = userName
+    //        birthdayUser = userBirthday
+    //        mailUser = userMail
+    //        genderUser = userGender
+    //    }
     /*
      // MARK: - Navigation
      
