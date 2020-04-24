@@ -27,6 +27,7 @@
 		8E2A1E2D244D55B000D38FB1 /* SettingRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */; };
 		8E2A1E2F244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */; };
 		8E2A1E32244D8B7000D38FB1 /* YearPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */; };
+		8E2D0E0A2452833500A49A91 /* ChangeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D0E092452833500A49A91 /* ChangeViewControllerDelegate.swift */; };
 		8E3145DC2451559F0026B955 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3145DB2451559F0026B955 /* BaseViewController.swift */; };
 		8E3145DE24516F340026B955 /* ReminderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3145DD24516F340026B955 /* ReminderPickerViewController.swift */; };
 		8E3145E0245189730026B955 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3145DF245189730026B955 /* ReminderViewController.swift */; };
@@ -65,6 +66,7 @@
 		8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRateTableViewCell.swift; sourceTree = "<group>"; };
 		8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReleaseYearTableViewCell.swift; sourceTree = "<group>"; };
 		8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPickerViewController.swift; sourceTree = "<group>"; };
+		8E2D0E092452833500A49A91 /* ChangeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		8E3145DB2451559F0026B955 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8E3145DD24516F340026B955 /* ReminderPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPickerViewController.swift; sourceTree = "<group>"; };
 		8E3145DF245189730026B955 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				8EB01A53244E8EF300B577C2 /* PickerDelegate.swift */,
 				8E32A5A32450484600C0DD23 /* UserInfoDelegate.swift */,
+				8E2D0E092452833500A49A91 /* ChangeViewControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				8E13DCC92449924800913D44 /* HomeViewController.swift in Sources */,
 				8EB01A54244E8EF300B577C2 /* PickerDelegate.swift in Sources */,
 				8E13DCF4244ADC0F00913D44 /* FilmDetailViewController.swift in Sources */,
+				8E2D0E0A2452833500A49A91 /* ChangeViewControllerDelegate.swift in Sources */,
 				8E2A1E32244D8B7000D38FB1 /* YearPickerViewController.swift in Sources */,
 				8E47C6C1245000B800595BD5 /* UserInfoMailTableViewCell.swift in Sources */,
 				8E13DCE72449A5EB00913D44 /* UserInfoTableViewCell.swift in Sources */,

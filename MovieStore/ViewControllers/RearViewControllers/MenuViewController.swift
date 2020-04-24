@@ -16,6 +16,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var reminderTable: UITableView!
     @IBOutlet weak var showAllBtn: UIButton!
     @IBOutlet weak var editBtn: UIButton!
+    var changeViewControllerDelegate:ChangeViewControllerDelegate!
 //    var userInfoMenuDelegate:UserInfoDelegate!
     
     var userImage:UIImage!
@@ -126,13 +127,15 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func showAllButtonDidTap(_ sender: Any) {
-        let vcSetting = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "settingViewController") as! SettingViewController
-        vcSetting.modalPresentationStyle = .overCurrentContext
-//        present(vcSetting, animated: true, completion: nil)
-        self.navigationController?.pushViewController(vcSetting, animated: true)
-//        self.navigationController?.pushViewController(vcSetting, animated: true)
-       // vcSetting.performSegue(withIdentifier: "showReminder", sender: nil)
-        
+//        let vcTabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBarController") as! TabBarController
+//        vcTabBar.selectedIndex = 2
+        self.revealViewController()?.revealToggle(animated: true)
+        self.changeViewControllerDelegate = (self.revealViewController()?.frontViewController as! TabBarController)
+        self.changeViewControllerDelegate.changeViewController()
+       // self.dismiss(animated: true, completion: nil)
+//        vcTabBar.modalPresentationStyle = .overFullScreen
+//        vcTabBar.selectedIndex = 2
+//        present(vcTabBar, animated: true, completion: nil)
     }
     /*
      // MARK: - Navigation

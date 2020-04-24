@@ -9,8 +9,7 @@
 import UIKit
 import SWRevealViewController
 
-class SettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PickerDelegate {
-    
+class SettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PickerDelegate, ChangeViewControllerDelegate {
 
     @IBOutlet weak var settingTableView: UITableView!
     @IBOutlet weak var btnMenu: UIBarButtonItem!
@@ -141,6 +140,12 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.selectYear(time: selectedTime)
         }
     }
+    
+    func changeViewController() {
+        print("ok")
+        self.performSegue(withIdentifier: "showReminder", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

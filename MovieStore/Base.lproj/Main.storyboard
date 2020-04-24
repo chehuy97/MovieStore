@@ -980,15 +980,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="cgf-ve-0eJ">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="klT-TO-C2J"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="1Fa-6q-Roo">
-                            <connections>
-                                <segue destination="9Ak-54-PKY" kind="show" id="k2g-L9-SEc"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="klT-TO-C2J" id="wW4-bk-Kk8"/>
                         <outlet property="settingTableView" destination="QIB-p4-alC" id="F26-KO-sUh"/>
+                        <segue destination="9Ak-54-PKY" kind="show" identifier="showReminder" id="Kaq-wT-MSG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHJ-SQ-mLT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -998,7 +994,7 @@
         <!--Reminder View Controller-->
         <scene sceneID="k5H-NZ-ZGd">
             <objects>
-                <viewController id="9Ak-54-PKY" customClass="ReminderViewController" customModule="MovieStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reminderViewController" id="9Ak-54-PKY" customClass="ReminderViewController" customModule="MovieStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lsU-po-Z9C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1346,7 +1342,7 @@
                         <outlet property="userAvatar" destination="lRn-GH-G7U" id="3Qj-Gl-oR8"/>
                         <outlet property="userInfoTable" destination="4fj-uY-6TU" id="DlE-gm-9ON"/>
                         <outlet property="userName" destination="lr7-mr-M9M" id="SMp-Tm-AFR"/>
-                        <segue destination="dfi-ap-SIA" kind="presentation" identifier="showEditUserSegue" modalPresentationStyle="overFullScreen" id="UnG-3c-ydM"/>
+                        <segue destination="dfi-ap-SIA" kind="presentation" identifier="showEditUserSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="UnG-3c-ydM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3c-lA-6Ht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1599,7 +1595,7 @@
                         <outlet property="infoTable" destination="0pF-Oi-uj3" id="HLJ-4J-F0x"/>
                         <outlet property="textfieldName" destination="UWi-Uc-xzc" id="QDg-eX-RDe"/>
                         <segue destination="qM6-83-Qpc" kind="presentation" identifier="showUserBirthdayPicker" modalPresentationStyle="overFullScreen" id="Dfv-H3-yEx"/>
-                        <segue destination="743-GH-l7b" kind="presentation" identifier="menuSegue" modalPresentationStyle="fullScreen" id="uCH-4M-uhm"/>
+                        <segue destination="743-GH-l7b" kind="presentation" identifier="menuSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="uCH-4M-uhm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QeP-86-WXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1684,7 +1680,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="utv-ji-XQ8">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Gr6-CA-L2K" customClass="TabBarController" customModule="MovieStore" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="Gr6-CA-L2K" customClass="TabBarController" customModule="MovieStore" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="quT-r9-J0T">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="bc3-zJ-2yd"/>
@@ -1799,7 +1795,6 @@
         <image name="temporaryAbout" width="341" height="481"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UnG-3c-ydM"/>
         <segue reference="uCH-4M-uhm"/>
         <segue reference="zf2-Ko-erM"/>
     </inferredMetricsTieBreakers>
