@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReminderPickerViewController: UIViewController {
+class ReminderPickerViewController: BaseViewController {
 
     @IBOutlet weak var reminderPicker: UIDatePicker!
     @IBOutlet weak var chooseView: UIView!
@@ -40,6 +40,7 @@ class ReminderPickerViewController: UIViewController {
     }
     
     @IBAction func selectButtonDidTap(_ sender: Any) {
+        self.notification(Title: "Movie Notification", Body: "Show movie notification", Time: 65)
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -37,11 +37,8 @@ class BaseViewController: UIViewController {
         content.body = body
         
         //step3: Create the notification trigger
-        
         let date = Date().addingTimeInterval(time)
-        
         let dateComponents = Calendar.current.dateComponents([.year, .month,.day, .hour, .minute, .second], from: date)
-        
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         
         //Step 4: Create the request

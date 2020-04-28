@@ -22,6 +22,9 @@
 		8E13DCEB2449A69B00913D44 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13DCEA2449A69B00913D44 /* ReminderTableViewCell.swift */; };
 		8E13DCEE2449B7B100913D44 /* FilmInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13DCED2449B7B100913D44 /* FilmInfoTableViewCell.swift */; };
 		8E13DCF4244ADC0F00913D44 /* FilmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13DCF3244ADC0F00913D44 /* FilmDetailViewController.swift */; };
+		8E29AA3424567EF00092FEE3 /* MovieString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29AA3324567EF00092FEE3 /* MovieString.swift */; };
+		8E29AA3B2456BEA80092FEE3 /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29AA3A2456BEA80092FEE3 /* MovieListModel.swift */; };
+		8E29AA422456E6050092FEE3 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29AA412456E6050092FEE3 /* UIImageView.swift */; };
 		8E2A1E26244AEC3E00D38FB1 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E25244AEC3E00D38FB1 /* CastCollectionViewCell.swift */; };
 		8E2A1E2B244D4E8200D38FB1 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2A244D4E8200D38FB1 /* SettingTableViewCell.swift */; };
 		8E2A1E2D244D55B000D38FB1 /* SettingRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */; };
@@ -32,6 +35,7 @@
 		8E3145DE24516F340026B955 /* ReminderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3145DD24516F340026B955 /* ReminderPickerViewController.swift */; };
 		8E3145E0245189730026B955 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3145DF245189730026B955 /* ReminderViewController.swift */; };
 		8E3145E2245190EB0026B955 /* ReminderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3145E1245190EB0026B955 /* ReminderDetailTableViewCell.swift */; };
+		8E319F7A2457CC8A00023886 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E319F792457CC8900023886 /* APIService.swift */; };
 		8E32A5A224501CB700C0DD23 /* BirthdayPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E32A5A124501CB700C0DD23 /* BirthdayPickerViewController.swift */; };
 		8E32A5A42450484600C0DD23 /* UserInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E32A5A32450484600C0DD23 /* UserInfoDelegate.swift */; };
 		8E47C6BD244FF7DC00595BD5 /* UserInfoBirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47C6BC244FF7DC00595BD5 /* UserInfoBirthdayTableViewCell.swift */; };
@@ -61,6 +65,9 @@
 		8E13DCEA2449A69B00913D44 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		8E13DCED2449B7B100913D44 /* FilmInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoTableViewCell.swift; sourceTree = "<group>"; };
 		8E13DCF3244ADC0F00913D44 /* FilmDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailViewController.swift; sourceTree = "<group>"; };
+		8E29AA3324567EF00092FEE3 /* MovieString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieString.swift; sourceTree = "<group>"; };
+		8E29AA3A2456BEA80092FEE3 /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
+		8E29AA412456E6050092FEE3 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		8E2A1E25244AEC3E00D38FB1 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E2A1E2A244D4E8200D38FB1 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRateTableViewCell.swift; sourceTree = "<group>"; };
@@ -71,6 +78,7 @@
 		8E3145DD24516F340026B955 /* ReminderPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPickerViewController.swift; sourceTree = "<group>"; };
 		8E3145DF245189730026B955 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		8E3145E1245190EB0026B955 /* ReminderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailTableViewCell.swift; sourceTree = "<group>"; };
+		8E319F792457CC8900023886 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8E32A5A124501CB700C0DD23 /* BirthdayPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayPickerViewController.swift; sourceTree = "<group>"; };
 		8E32A5A32450484600C0DD23 /* UserInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDelegate.swift; sourceTree = "<group>"; };
 		8E47C6BC244FF7DC00595BD5 /* UserInfoBirthdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBirthdayTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +142,10 @@
 		8E13DCC32449924800913D44 /* MovieStore */ = {
 			isa = PBXGroup;
 			children = (
+				8E319F782457CC6000023886 /* Service */,
+				8E29AA3C2456D4ED0092FEE3 /* Extension */,
+				8E29AA352456BDBD0092FEE3 /* Models */,
+				8E29AA2E24567D0A0092FEE3 /* Constant */,
 				8EB01A52244E8EA800B577C2 /* Protocols */,
 				8E13DCDE2449955400913D44 /* ViewControllers */,
 				8E13DCE32449A57600913D44 /* Cell */,
@@ -205,6 +217,30 @@
 			path = FilmInfoCell;
 			sourceTree = "<group>";
 		};
+		8E29AA2E24567D0A0092FEE3 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				8E29AA3324567EF00092FEE3 /* MovieString.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		8E29AA352456BDBD0092FEE3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E29AA3A2456BEA80092FEE3 /* MovieListModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8E29AA3C2456D4ED0092FEE3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8E29AA412456E6050092FEE3 /* UIImageView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8E2A1E24244AEC0F00D38FB1 /* CastCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +267,14 @@
 				8E3145DD24516F340026B955 /* ReminderPickerViewController.swift */,
 			);
 			path = CustomControls;
+			sourceTree = "<group>";
+		};
+		8E319F782457CC6000023886 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8E319F792457CC8900023886 /* APIService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		8EB01A52244E8EA800B577C2 /* Protocols */ = {
@@ -367,10 +411,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E319F7A2457CC8A00023886 /* APIService.swift in Sources */,
 				8E32A5A42450484600C0DD23 /* UserInfoDelegate.swift in Sources */,
 				8E13DCDD2449944700913D44 /* AboutViewController.swift in Sources */,
 				8E2A1E26244AEC3E00D38FB1 /* CastCollectionViewCell.swift in Sources */,
 				8E2A1E2B244D4E8200D38FB1 /* SettingTableViewCell.swift in Sources */,
+				8E29AA3424567EF00092FEE3 /* MovieString.swift in Sources */,
 				8E2A1E2F244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift in Sources */,
 				8E13DCDB2449943C00913D44 /* SettingViewController.swift in Sources */,
 				8E13DCC92449924800913D44 /* HomeViewController.swift in Sources */,
@@ -394,6 +440,8 @@
 				8E3145DE24516F340026B955 /* ReminderPickerViewController.swift in Sources */,
 				8E32A5A224501CB700C0DD23 /* BirthdayPickerViewController.swift in Sources */,
 				8E13DCC72449924800913D44 /* SceneDelegate.swift in Sources */,
+				8E29AA422456E6050092FEE3 /* UIImageView.swift in Sources */,
+				8E29AA3B2456BEA80092FEE3 /* MovieListModel.swift in Sources */,
 				8E13DCE22449983500913D44 /* MenuViewController.swift in Sources */,
 				8E13DCEE2449B7B100913D44 /* FilmInfoTableViewCell.swift in Sources */,
 				8E13DCEB2449A69B00913D44 /* ReminderTableViewCell.swift in Sources */,

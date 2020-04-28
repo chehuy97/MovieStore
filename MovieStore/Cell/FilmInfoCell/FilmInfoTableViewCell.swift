@@ -8,8 +8,10 @@
 
 import UIKit
 
+
 class FilmInfoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var imgFilm: UIImageView!
     @IBOutlet weak var releaseDate: UILabel!
     @IBOutlet weak var ratingFilm: UILabel!
@@ -21,14 +23,21 @@ class FilmInfoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func loadData(movieItem:MovieListModel) {
+        movieName.text = movieItem.title
+        releaseDate.text = movieItem.releaseDate
+        ratingFilm.text = movieItem.rating + "/10"
+        overviewFilm.text = movieItem.overview
+        imgFilm.loadImage(url: URL(string: movieItem.imgMovieURL)!)
+        
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     func configurateUI() {
-        imgFilm.image = UIImage.init(named: "filmImage")
+        imgFilm.image = UIImage.init(named: "imageFilm1")
     }
     
     @IBAction func favoriteSelected(_ sender: Any) {
@@ -40,3 +49,4 @@ class FilmInfoTableViewCell: UITableViewCell {
         }
     }
 }
+

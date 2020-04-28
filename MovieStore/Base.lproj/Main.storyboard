@@ -159,6 +159,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imgFilm" destination="Gn1-Wc-b56" id="F9K-3j-DfN"/>
+                                            <outlet property="movieName" destination="jb7-9V-5kI" id="DXX-bh-vqF"/>
                                             <outlet property="overviewFilm" destination="DnS-1Z-FXL" id="4MG-iJ-iL9"/>
                                             <outlet property="ratingFilm" destination="zBE-7d-bX4" id="gvs-9J-Qmd"/>
                                             <outlet property="releaseDate" destination="uYO-Fv-nAG" id="LSN-R1-QVQ"/>
@@ -208,6 +209,7 @@
                                         <size key="customSize" width="185" height="239"/>
                                         <connections>
                                             <outlet property="filmImage" destination="n5c-Dc-Xri" id="e1R-Sp-MKA"/>
+                                            <outlet property="movieName" destination="VvP-0w-LgQ" id="gvs-y8-vfj"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
