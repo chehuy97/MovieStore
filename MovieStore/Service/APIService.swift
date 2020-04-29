@@ -89,7 +89,7 @@ class APIService {
                             cast.append(castItem)
                         }
                         let movieImage:String = self.imgURL + json["poster_path"].stringValue
-                        filmDetailData = MovieDetailModel(title: json["title"].stringValue,releaseDate: json["release_date"].stringValue, rating: json["vote_average"].floatValue, overview: json["overview"].stringValue, imgMovie: movieImage, production: cast)
+                        filmDetailData = MovieDetailModel(id: json["id"].stringValue, title: json["title"].stringValue,releaseDate: json["release_date"].stringValue, rating: json["vote_average"].floatValue, overview: json["overview"].stringValue, imgMovie: movieImage, production: cast)
                     }
                     print(filmDetailData!)
                     completion(filmDetailData)

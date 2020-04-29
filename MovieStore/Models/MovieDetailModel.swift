@@ -9,6 +9,7 @@
 import Foundation
 
 struct MovieDetailModel {
+    var id:String!
     var title:String!
     var releaseDate:String
     var rating:Float!

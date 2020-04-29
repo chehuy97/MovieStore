@@ -16,6 +16,8 @@ class ReminderPickerViewController: BaseViewController {
     @IBOutlet weak var cancelBtn: UIButton!
     var dateFormatter = DateFormatter()
     var selectedDateTime:String!
+    var pickerDelegate:PickerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeUI()
@@ -33,7 +35,6 @@ class ReminderPickerViewController: BaseViewController {
 
     @IBAction func dateTimeChanged(_ sender: Any) {
         selectedDateTime = dateFormatter.string(from: reminderPicker.date)
-        print("\(selectedDateTime!)")
     }
     @IBAction func cancelButtonDidTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -41,6 +42,7 @@ class ReminderPickerViewController: BaseViewController {
     
     @IBAction func selectButtonDidTap(_ sender: Any) {
         self.notification(Title: "Movie Notification", Body: "Show movie notification", Time: 65)
+        self.pickerDelegate?.selectPickerTime(time: selectedDateTime)
         self.dismiss(animated: true, completion: nil)
     }
     

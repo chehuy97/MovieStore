@@ -30,6 +30,8 @@
 		8E2A1E2D244D55B000D38FB1 /* SettingRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */; };
 		8E2A1E2F244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */; };
 		8E2A1E32244D8B7000D38FB1 /* YearPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */; };
+		8E2C94F824598A790066E7E0 /* RemindersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C94F724598A790066E7E0 /* RemindersData.swift */; };
+		8E2C94FA24598AC60066E7E0 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C94F924598AC60066E7E0 /* ReminderModel.swift */; };
 		8E2D0E0A2452833500A49A91 /* ChangeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D0E092452833500A49A91 /* ChangeViewControllerDelegate.swift */; };
 		8E3145DC2451559F0026B955 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3145DB2451559F0026B955 /* BaseViewController.swift */; };
 		8E3145DE24516F340026B955 /* ReminderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3145DD24516F340026B955 /* ReminderPickerViewController.swift */; };
@@ -79,6 +81,8 @@
 		8E2A1E2C244D55B000D38FB1 /* SettingRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRateTableViewCell.swift; sourceTree = "<group>"; };
 		8E2A1E2E244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReleaseYearTableViewCell.swift; sourceTree = "<group>"; };
 		8E2A1E31244D8B7000D38FB1 /* YearPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPickerViewController.swift; sourceTree = "<group>"; };
+		8E2C94F724598A790066E7E0 /* RemindersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersData.swift; sourceTree = "<group>"; };
+		8E2C94F924598AC60066E7E0 /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		8E2D0E092452833500A49A91 /* ChangeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		8E3145DB2451559F0026B955 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8E3145DD24516F340026B955 /* ReminderPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPickerViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				8E29AA3A2456BEA80092FEE3 /* MovieListModel.swift */,
 				8E319F7B2457DC5300023886 /* MovieDetailModel.swift */,
 				8E319F7F2457E0B000023886 /* CastCrewModel.swift */,
+				8E2C94F924598AC60066E7E0 /* ReminderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			children = (
 				8E319F86245823B200023886 /* SettingData.swift */,
 				8E319F8824590ED900023886 /* FavoriteMovieData.swift */,
+				8E2C94F724598A790066E7E0 /* RemindersData.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 				8E13DCDD2449944700913D44 /* AboutViewController.swift in Sources */,
 				8E2A1E26244AEC3E00D38FB1 /* CastCollectionViewCell.swift in Sources */,
 				8E2A1E2B244D4E8200D38FB1 /* SettingTableViewCell.swift in Sources */,
+				8E2C94FA24598AC60066E7E0 /* ReminderModel.swift in Sources */,
 				8E29AA3424567EF00092FEE3 /* MovieString.swift in Sources */,
 				8E2A1E2F244D55D400D38FB1 /* SettingReleaseYearTableViewCell.swift in Sources */,
 				8E13DCDB2449943C00913D44 /* SettingViewController.swift in Sources */,
@@ -457,6 +464,7 @@
 				8EB01A59244ED1E600B577C2 /* FilmInfoCollectionViewCell.swift in Sources */,
 				8E13DCE0244995FF00913D44 /* TabBarController.swift in Sources */,
 				8E319F802457E0B000023886 /* CastCrewModel.swift in Sources */,
+				8E2C94F824598A790066E7E0 /* RemindersData.swift in Sources */,
 				8E3145E0245189730026B955 /* ReminderViewController.swift in Sources */,
 				8E319F842458181D00023886 /* SettingStatusDelegate.swift in Sources */,
 				8E3145E2245190EB0026B955 /* ReminderDetailTableViewCell.swift in Sources */,

@@ -40,7 +40,6 @@ class FilmInfoTableViewCell: UITableViewCell {
     }
     func configurateUI() {
         movieName.font = UIFont.boldSystemFont(ofSize: 20)
-        // đoạn ni phải check với cái list favorite nề //y la chon sao dau lq den list favorite t chon roi t ms add vo favorite ma
         let mvs =  FavoriteMovieData.sharedInstance.favoriteData.filter { (m) -> Bool in
             return m.id == cellMovieItem!.id
         }
@@ -55,7 +54,7 @@ class FilmInfoTableViewCell: UITableViewCell {
         favoriteStatus = !favoriteStatus
         if favoriteStatus == true {
             sender.setImage(UIImage.init(named: "star-selected"), for: .normal)
-            FavoriteMovieData.sharedInstance.favoriteData.append(cellMovieItem) //cho ni ne
+            FavoriteMovieData.sharedInstance.favoriteData.append(cellMovieItem)
         } else {
             sender.setImage(UIImage.init(named: "star"), for: .normal)
             FavoriteMovieData.sharedInstance.favoriteData.removeAll{$0.id == cellMovieItem.id}

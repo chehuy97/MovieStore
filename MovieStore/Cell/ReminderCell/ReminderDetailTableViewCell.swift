@@ -18,7 +18,13 @@ class ReminderDetailTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    func loadData(item:ReminderModel) {
+        imgMovie.loadImage(url: URL(string: item.imgFilmUrl)!)
+        nameMovie.text = item.nameFilm
+        timeMovie.text = item.timeReminder
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
