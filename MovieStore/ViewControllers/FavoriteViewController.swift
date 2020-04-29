@@ -11,16 +11,25 @@ import SWRevealViewController
 
 class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filmTable: UITableView!
     @IBOutlet weak var filmGrid: UICollectionView!
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     @IBOutlet weak var switchViewBtn: UIBarButtonItem!
     var viewDisplay:Bool = true
+    var favoriteData:[MovieListModel] = []
+    var movieIdDelegate:MovieIdDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
         // Do any additional setup after loading the view.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFavoriteFilmDetail" {
+            let vc:FilmDetailViewController = segue.destination as! FilmDetailViewController
+            self.movieIdDelegate = vc
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +38,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 85/255, green: 100/255, blue: 185/255, alpha: 1)
         navigationController?.navigationBar.tintColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        loadDataFromAPI()
     }
     
     func initData() {
@@ -42,13 +52,26 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         filmGrid.alpha = 0
     }
     
+    func loadDataFromAPI() {
+//        APIService.sharedInstance.LoadHomeDataFromAPI(Filter: 1, SortBy: 1) { (data) in
+//            self.popularData = data
+//            self.filmTable?.reloadData()
+//            self.filmGrid?.reloadData()
+//        }
+        favoriteData = FavoriteMovieData.sharedInstance.favoriteData
+        self.filmTable?.reloadData()
+        self.filmGrid?.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return self.favoriteData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:FilmInfoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "filmTableCell") as! FilmInfoTableViewCell
         //cell.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        cell.selectedFavorite.isHidden = true
+        cell.loadData(movieItem: favoriteData[indexPath.row])
         cell.configurateUI()
         return cell
         
@@ -58,24 +81,23 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "showFavoriteFilmDetail", sender: nil)
+        self.movieIdDelegate.sendMovieId(Id: favoriteData[indexPath.row].id)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return self.favoriteData.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FilmInfoCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filmGridCell", for: indexPath) as! FilmInfoCollectionViewCell
-        cell.configurateUI()
-        cell.heightAnchor.constraint(equalToConstant: self.view.frame.height/3 + 5).isActive = true
-        cell.widthAnchor.constraint(equalToConstant: self.view.frame.width/2-10).isActive = true
-        cell.filmImage.heightAnchor.constraint(equalToConstant: self.view.frame.height/4).isActive = true
-        cell.filmImage.widthAnchor.constraint(equalToConstant: self.view.frame.width-30).isActive = true
+        cell.configurateUI(View: self)
+        cell.loadData(movieItem: favoriteData[indexPath.row])
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showHomeFilmDetail", sender: nil)
+        self.performSegue(withIdentifier: "showFavoriteFilmDetail", sender: nil)
+        self.movieIdDelegate.sendMovieId(Id: favoriteData[indexPath.row].id)
     }
 
     @IBAction func switchViewDisplay(_ sender: Any) {

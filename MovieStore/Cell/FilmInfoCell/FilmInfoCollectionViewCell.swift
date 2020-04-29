@@ -18,8 +18,12 @@ class FilmInfoCollectionViewCell: UICollectionViewCell {
         movieName.text = movieItem.title
     }
     
-    func configurateUI() {
-        self.filmImage.image = UIImage.init(named: "filmImage")
+    func configurateUI(View uiView:UIViewController) {
+        movieName.font = UIFont.boldSystemFont(ofSize: 20)
+        self.heightAnchor.constraint(equalToConstant: uiView.view.frame.height/3 + 5).isActive = true
+        self.widthAnchor.constraint(equalToConstant: uiView.view.frame.width/2-10).isActive = true
+        self.filmImage.heightAnchor.constraint(equalToConstant: uiView.view.frame.height/4).isActive = true
+        self.filmImage.widthAnchor.constraint(equalToConstant: uiView.view.frame.width-30).isActive = true
     }
 }
 

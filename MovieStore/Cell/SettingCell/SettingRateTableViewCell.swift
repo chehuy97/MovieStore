@@ -15,7 +15,6 @@ class SettingRateTableViewCell: UITableViewCell {
     @IBOutlet weak var rateScore: UILabel!
     @IBOutlet weak var sliderScore: UISlider!
     
-    
     @IBAction func chooseSlider(_ sender: Any) {
 //        var value:Float = 0
 //        let slidervalue:Int = Int(sliderScore.value)
@@ -24,7 +23,8 @@ class SettingRateTableViewCell: UITableViewCell {
 //        } else {
 //            value = Float(slidervalue) + 0.5
 //        }
-        let sliderValue = String(format: "%.1f", sliderScore.value)
+        let sliderValue:String! = String(format: "%.1f", sliderScore.value)
+        SettingData.sharedInstance.settingRating = Float(sliderValue)!
         rateScore.text = sliderValue
     }
     override func awakeFromNib() {

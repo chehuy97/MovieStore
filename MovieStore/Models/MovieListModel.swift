@@ -11,7 +11,8 @@ import Foundation
 struct MovieListModel {
     var title:String!
     var releaseDate:String!
-    var rating:String!
+    var rating:Float!
     var overview:String!
     var imgMovieURL:String!
+    var id:String!
 }

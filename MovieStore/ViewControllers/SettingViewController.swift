@@ -47,6 +47,7 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         settingListFilter = ["Popular Movies", "Top Rate Movies", "Upcoming Movies", "NowPlaying Movies","Movie with rate from:", "Release Year"]
         settingListSortBy = ["Release Date", "Rating"]
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
@@ -74,16 +75,22 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
                 let cell:SettingRateTableViewCell = tableView.dequeueReusableCell(withIdentifier: "settingRateCell") as! SettingRateTableViewCell
                 cell.settingName.text = settingListFilter[indexPath.row]
                 cell.rateScore.text = String(cell.sliderScore.value)
+                cell.selectionStyle = SettingRateTableViewCell.SelectionStyle.none
                 return cell
             }
             if indexPath.row == 5 {
                 let cell:SettingReleaseYearTableViewCell = tableView.dequeueReusableCell(withIdentifier: "settingYearCell") as! SettingReleaseYearTableViewCell
                 cell.settingName.text = settingListFilter[indexPath.row]
                 releaseYear = indexPath
+                cell.selectionStyle = SettingReleaseYearTableViewCell.SelectionStyle.none
                 return cell
             }
             let cell:SettingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "settingCell")! as! SettingTableViewCell
             cell.settingName.text = settingListFilter[indexPath.row]
+            if indexPath.row == 0 {
+                cell.checkImg.image = UIImage.init(named: "correct")
+                previousFilterIndex = indexPath
+            }
             return cell
             
         }
@@ -104,10 +111,8 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            if previousFilterIndex != nil {
                 let cell:SettingTableViewCell = tableView.cellForRow(at: previousFilterIndex!) as! SettingTableViewCell
                 cell.checkImg.image = UIImage.init(named: "")
-            }
         }
         if indexPath.section == 1 {
             if previousSortByIndex != nil {
@@ -120,21 +125,31 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.checkImg.image = UIImage.init(named: "correct")
             if(indexPath.section == 0 ){
                 previousFilterIndex = indexPath
+                SettingData.sharedInstance.settingFiler = indexPath.row
             } else {
                 previousSortByIndex = indexPath
+                SettingData.sharedInstance.settingSortBy = indexPath.row
             }
         }
+//        if indexPath.section == 0 && indexPath.row == 4 {
+//            let cell:SettingRateTableViewCell = tableView.cellForRow(at: indexPath) as! SettingRateTableViewCell
+//            SettingData.sharedInstance.settingRating = Float(cell.sliderValue)!
+//        }
+//        if indexPath.section == 0 && indexPath.row == 5 {
+//
+//        }
     }
     @IBAction func openPicker(_ sender: Any) {
     //        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "YearPickerViewController") as! YearPickerViewController
     //        vc.modalPresentationStyle = .overFullScreen
     //        vc.pickerDelegate = self
     //        present(vc, animated: true, completion: nil)
-            self.shouldPerformSegue(withIdentifier: "showSettingYearPicker", sender: nil)
+            self.performSegue(withIdentifier: "showSettingYearPicker", sender: nil)
     }
     //Picker Delegate
     func selectPickerTime(time: String) {
         selectedTime = time
+        SettingData.sharedInstance.settingReleaseYear = selectedTime
         if releaseYear != nil {
             let cell:SettingReleaseYearTableViewCell = settingTableView.cellForRow(at: releaseYear!) as! SettingReleaseYearTableViewCell
             cell.selectYear(time: selectedTime)
@@ -145,6 +160,7 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         print("ok")
         self.performSegue(withIdentifier: "showReminder", sender: nil)
     }
+    
     
     /*
     // MARK: - Navigation

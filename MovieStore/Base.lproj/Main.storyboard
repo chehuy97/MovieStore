@@ -129,10 +129,9 @@
                                                         <constraint firstAttribute="width" constant="25" id="uJa-xW-Z35"/>
                                                         <constraint firstAttribute="height" constant="25" id="xac-PK-NQS"/>
                                                     </constraints>
-                                                    <state key="normal" backgroundImage="star"/>
                                                     <state key="selected" image="star-selected"/>
                                                     <connections>
-                                                        <action selector="favoriteSelected:" destination="1Io-37-EP2" eventType="touchUpInside" id="DKh-uw-gT0"/>
+                                                        <action selector="selectFavoriteButtonDidTap:" destination="1Io-37-EP2" eventType="touchUpInside" id="S3a-Dy-tzB"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -324,7 +323,7 @@
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXQ-vL-PD7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXQ-vL-PD7">
                                 <rect key="frame" x="180" y="203" width="200" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="SeD-hE-N8R"/>
@@ -446,6 +445,9 @@
                         <outlet property="btnFavorite" destination="nIS-Bp-afB" id="NbL-8C-h1U"/>
                         <outlet property="castView" destination="IPp-r3-cKl" id="7nP-EH-dUg"/>
                         <outlet property="imageFilm" destination="wLQ-jj-Bpj" id="6dY-gi-71U"/>
+                        <outlet property="overview" destination="GXQ-vL-PD7" id="3Yx-Ik-9hG"/>
+                        <outlet property="rating" destination="Vv9-pM-oLQ" id="u8B-I5-BZn"/>
+                        <outlet property="releaseDate" destination="Rxz-GM-kNq" id="Tck-kQ-q8X"/>
                         <outlet property="reminderButton" destination="b3e-6x-jKJ" id="ZGF-Ow-y7O"/>
                         <segue destination="QOD-m0-Tpa" kind="presentation" identifier="showReminderTime" modalPresentationStyle="overFullScreen" id="PpE-Aw-mPC"/>
                     </connections>
@@ -637,9 +639,6 @@
                                                     </constraints>
                                                     <state key="normal" backgroundImage="star"/>
                                                     <state key="selected" image="star-selected"/>
-                                                    <connections>
-                                                        <action selector="favoriteSelected:" destination="N4A-Lk-ewL" eventType="touchUpInside" id="JYv-pc-gkZ"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -665,6 +664,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imgFilm" destination="mMS-Qs-W14" id="VKd-ZM-g8O"/>
+                                            <outlet property="movieName" destination="0cM-g2-zEa" id="K7P-Rw-GTN"/>
                                             <outlet property="overviewFilm" destination="OiI-8y-kM4" id="47R-AP-tBu"/>
                                             <outlet property="ratingFilm" destination="kvy-41-fhk" id="6Tf-Zc-Qpi"/>
                                             <outlet property="releaseDate" destination="JqN-iL-Kmr" id="qZp-7D-plm"/>
@@ -714,6 +714,7 @@
                                         <size key="customSize" width="185" height="239"/>
                                         <connections>
                                             <outlet property="filmImage" destination="Hvp-cL-XwR" id="GGg-ke-M2l"/>
+                                            <outlet property="movieName" destination="SE0-je-Z9j" id="0kU-5M-MTk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -755,6 +756,7 @@
                         <outlet property="btnMenu" destination="6hC-fi-a92" id="4g4-mA-uwJ"/>
                         <outlet property="filmGrid" destination="PJL-eK-EL0" id="mG0-OT-mQ4"/>
                         <outlet property="filmTable" destination="UYz-ju-4nx" id="7IA-YK-EcJ"/>
+                        <outlet property="searchBar" destination="uPD-QA-cwf" id="pfH-FT-2lq"/>
                         <outlet property="switchViewBtn" destination="hD8-Yp-WBn" id="thi-Nd-upY"/>
                         <segue destination="fC8-kE-kpZ" kind="show" identifier="showFavoriteFilmDetail" id="6VB-tg-x9C"/>
                     </connections>
@@ -891,7 +893,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qk5-zA-GIs">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qk5-zA-GIs">
                                                     <rect key="frame" x="68" y="61" width="274" height="26"/>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -947,7 +949,7 @@
                                                         <constraint firstAttribute="width" constant="50" id="nyb-Sj-k8T"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <state key="normal" title="1970">
+                                                    <state key="normal" title="none">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
@@ -1798,6 +1800,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uCH-4M-uhm"/>
-        <segue reference="zf2-Ko-erM"/>
+        <segue reference="6VB-tg-x9C"/>
     </inferredMetricsTieBreakers>
 </document>

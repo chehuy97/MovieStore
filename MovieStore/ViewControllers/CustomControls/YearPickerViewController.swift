@@ -24,6 +24,7 @@ class YearPickerViewController: UIViewController,UIPickerViewDataSource,UIPicker
         // Do any additional setup after loading the view.
     }
     func initData() {
+        yearPickerData.append("none")
             for i in 1970...2020{
                 yearPickerData.append(String(i))
             }

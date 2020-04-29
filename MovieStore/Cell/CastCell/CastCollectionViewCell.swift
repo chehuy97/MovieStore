@@ -12,9 +12,13 @@ class CastCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgActor: UIImageView!
     @IBOutlet weak var nameActor: UILabel!
     
+    func loadData(cast:CastCrewModel){
+        imgActor.loadImage(url: URL(string: cast.castImage)!)
+        nameActor.text = cast.catsName
+    }
+    
     func configurateUI(){
         imgActor.image = UIImage.init(named: "actor")
-        nameActor.text = "Chris Evans"
         self.heightAnchor.constraint(equalToConstant: 120).isActive = true
         self.widthAnchor.constraint(equalToConstant: 95).isActive = true
         
