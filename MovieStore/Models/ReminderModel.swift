@@ -12,5 +12,6 @@ struct ReminderModel {
     var id:String!
     var imgFilmUrl:String!
     var nameFilm:String!
+    var rating:Float!
     var timeReminder:String!
 }

@@ -53,7 +53,7 @@ class ReminderViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             //add code here for when you hit delete
-            RemindersData.sharedInstance.remindersData.removeAll(where: {$0.timeReminder == remindersData[indexPath.row].timeReminder})
+            RemindersData.sharedInstance.remindersData.removeAll(where: {$0.timeReminder == remindersData[indexPath.row].timeReminder && $0.id == remindersData[indexPath.row].id })
             remindersData = RemindersData.sharedInstance.remindersData
             self.reminderTable?.reloadData()
         }

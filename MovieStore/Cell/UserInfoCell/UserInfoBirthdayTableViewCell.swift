@@ -15,6 +15,7 @@ class UserInfoBirthdayTableViewCell: UITableViewCell {
     
     func selectDate(date:String) {
         dateYearBtn.setTitle(date, for: .normal)
+        dateYearBtn.contentHorizontalAlignment = .left
     }
     
     override func awakeFromNib() {

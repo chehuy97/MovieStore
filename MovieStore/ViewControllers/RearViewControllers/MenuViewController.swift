@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UserInfoDelegate {
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userAvatar: UIImageView!
@@ -17,42 +17,32 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var showAllBtn: UIButton!
     @IBOutlet weak var editBtn: UIButton!
     var changeViewControllerDelegate:ChangeViewControllerDelegate!
-//    var userInfoMenuDelegate:UserInfoDelegate!
+    var userInfoMenuDelegate:UserInfoDelegate!
     
     var userImage:UIImage!
-    var userInfoName:String = "John Marker"
-    var userBirthday:String = "1970-01-01"
-    var userMail:String = "johnmarker97@gmail.com"
+    var userInfoName:String = "Chehuy97"
+    var userBirthday:String = "1997-10-09"
+    var userMail:String = "chehuy97@gmail.com"
     var userGender:Bool = true
-    //    var listUSerInforImage:[String]!
-    //    var listUSerInforValue:[String]!
-    var listReminder:[String]!
+    var listReminder:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeUI()
-        dataInit()
         userInfoTable.dataSource = self
         reminderTable.dataSource = self
         
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        if userImage == nil {
-            userImage = UIImage()
-            userImage = UIImage.init(named: "sad")
-        }
-        userAvatar.image = userImage
-        userAvatar.layer.cornerRadius =  userAvatar.bounds.height/2
-        userName.text = userInfoName
-        
+        dataInit()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showEditUserSegue" {
-//            let vc:UserEditViewController  = segue.destination as! UserEditViewController
-//            vc.userInfoDelegate = self
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEditUserSegue" {
+            let vc:UserEditViewController  = segue.destination as! UserEditViewController
+            self.userInfoMenuDelegate = vc
+        }
+    }
     
     func customizeUI(){
         self.revealViewController()?.rearViewRevealWidth = 350
@@ -64,17 +54,29 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     func dataInit(){
-        //        listUSerInforImage = ["birthday","mail","user"]
-        //        listUSerInforValue = ["1970-01-01","johnmarker@gmail.com","Male"]
-        listReminder = ["The Dark Tower - 2017 - 5.6/10 2017 - 09 -03 10:06","Annabelle: Creation - 2017 6.4/10 2017-09-03 10:06"]
-        
+        if userImage == nil {
+            userImage = UIImage()
+            userImage = UIImage.init(named: "filmImage")
+        }
+        userAvatar.image = userImage
+        userAvatar.layer.cornerRadius =  userAvatar.bounds.height/2
+        userName.text = userInfoName
+  //      listReminder = ["The Dark Tower - 2017 - 5.6/10 - 2017 - 09 -03 10:06","Annabelle: Creation - 2017 - 6.4/10 - 2017-09-03 10:06"]
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 0 {
             return 3
         }
         if tableView.tag == 1 {
-            return listReminder.count
+            if RemindersData.sharedInstance.remindersData.count == 0 {
+                return 0
+            }
+            if RemindersData.sharedInstance.remindersData.count == 1 {
+                return 1
+            }
+            if RemindersData.sharedInstance.remindersData.count >= 2 {
+                return 2
+            }
         }
         return 0;
     }
@@ -102,7 +104,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         if tableView.tag == 1 {
             let  cell:ReminderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "reminderCell") as! ReminderTableViewCell
-            cell.reminderText.text = listReminder[indexPath.row]
+            cell.reminderText.text = RemindersData.sharedInstance.remindersData[indexPath.row].nameFilm + " - " + String(RemindersData.sharedInstance.remindersData[indexPath.row].rating) + " - " + RemindersData.sharedInstance.remindersData[indexPath.row].timeReminder
             return cell
             
         }
@@ -112,23 +114,21 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return 60
     }
     
-//    func passUserData(userImg: Any, userName: String, userBirthday: String, userMail: String, userGender: Bool) {
-//        self.userImage = userImg as? UIImage
-//        self.userInfoName = userName
-//        self.userBirthday = userBirthday
-//        self.userMail = userMail
-//        self.userGender = userGender
-//    }
+    func passUserData(userImg: Any, userName: String, userBirthday: String, userMail: String, userGender: Bool) {
+        self.userImage = userImg as? UIImage
+        self.userInfoName = userName
+        self.userBirthday = userBirthday
+        self.userMail = userMail
+        self.userGender = userGender
+    }
     
     @IBAction func showEditButtonDidTap(_ sender: Any) {
-        //self.userInfoMenuDelegate.passUserData(userImg: userImage ?? 1, userName: userInfoName, userBirthday: userBirthday, userMail: userMail, userGender: userGender)
         self.performSegue(withIdentifier: "showEditUserSegue", sender: nil)
+        self.userInfoMenuDelegate.passUserData(userImg: userAvatar.image!, userName: userInfoName, userBirthday: userBirthday, userMail: userMail, userGender: userGender)
 
     }
     
     @IBAction func showAllButtonDidTap(_ sender: Any) {
-//        let vcTabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBarController") as! TabBarController
-//        vcTabBar.selectedIndex = 2
         self.revealViewController()?.revealToggle(animated: true)
         self.changeViewControllerDelegate = (self.revealViewController()?.frontViewController as! TabBarController)
         self.changeViewControllerDelegate.changeViewController()

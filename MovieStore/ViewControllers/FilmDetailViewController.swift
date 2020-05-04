@@ -103,7 +103,7 @@ class FilmDetailViewController: BaseViewController, UICollectionViewDataSource, 
     }
     
     func selectPickerTime(time: String) {
-        RemindersData.sharedInstance.remindersData.append(ReminderModel(id: filmDetailData.id, imgFilmUrl: filmDetailData.imgMovie, nameFilm: filmDetailData.title, timeReminder: time))
+        RemindersData.sharedInstance.remindersData.append(ReminderModel(id: filmDetailData.id, imgFilmUrl: filmDetailData.imgMovie, nameFilm: filmDetailData.title, rating: filmDetailData.rating, timeReminder: time))
     }
     /*
      // MARK: - Navigation
