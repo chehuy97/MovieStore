@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.1.0)
+  - Alamofire (5.2.1)
   - SwiftyJSON (4.3.0)
   - SWRevealViewController (2.3.0)
 
@@ -15,10 +15,10 @@ SPEC REPOS:
     - SWRevealViewController
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
 PODFILE CHECKSUM: 26538565b91924a80faeb4950ff8f8c3e071985b
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

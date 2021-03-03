@@ -10,3 +10,4 @@ target 'MovieStore' do
   # Pods for MovieStore
 
 end
+/Users/arthur/Documents/MySwiftProject/MovieStore/MovieStore/ViewControllers

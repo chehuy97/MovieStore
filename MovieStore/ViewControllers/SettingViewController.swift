@@ -9,8 +9,8 @@
 import UIKit
 import SWRevealViewController
 
-class SettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PickerDelegate, ChangeViewControllerDelegate {
-
+class SettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PickerDelegate, ChangeViewControllerDelegate {    
+    
     @IBOutlet weak var settingTableView: UITableView!
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     var settingListFilter:[String]!
@@ -155,6 +155,7 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.selectYear(time: selectedTime)
         }
     }
+
     
     func changeViewController() {
         print("ok")
